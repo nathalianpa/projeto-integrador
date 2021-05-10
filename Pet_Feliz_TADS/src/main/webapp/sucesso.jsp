@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Operação realizada com sucesso!</h1>
-        <a href="index.html">Voltar</a>
+        <a href="menu.jsp">Voltar</a>
 
     </body>
 </html>

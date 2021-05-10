@@ -177,7 +177,8 @@ public class ClienteDAO {
     }
 
 
-    public static void alterarCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
+    public static boolean alterarCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
+               boolean ok = true;
 
         Connection connection = null;
 
@@ -215,6 +216,8 @@ public class ClienteDAO {
                 connection.close();
             }
         }
+        return ok;
+        
     }
 
     public static void excluirCliente(Long id) throws SQLException, ClassNotFoundException {
