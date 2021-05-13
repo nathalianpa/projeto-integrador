@@ -61,7 +61,7 @@
                         <a href="#"> Cadastros </a>
                         <ul class="children sub-menu">
                             <li>
-                                <a href="./CadastrarCliente"">Clientes</a>
+                                <a href="./CadastrarCliente">Clientes</a>
                             </li>
                             <li>
                                 <a href="./IncluirFuncionario"> Funcionários </a>
@@ -97,17 +97,26 @@
                     <li>
                         <a href="">Usuários</a>
                         <ul class="children sub-menu">
-                            <li><a href="#">Usuário: ${nome}</a>
+                            <li><a href="#">Usuário: ${nome}</a></li>
                          
                                 <li>
                                     
                                     <a href="index.html">Sair</a>
                                 
-                                </li>
-                            
-                        </li>
+                                </li>                         
+                        
                         </ul>
                     </li>
+                    
+                    <li class="active">
+                        <a href="#"> Vendas </a>
+                        <ul class="children sub-menu">
+                            
+                            <li><a href="./CadastrarVenda">Efetuar Venda</a></li>                            
+                            <li><a href="./RelatorioVenda">Relatório de Vendas</a></li>
+                            
+                        </ul>
+                    </li>   
                
                 </ul>
             </nav>

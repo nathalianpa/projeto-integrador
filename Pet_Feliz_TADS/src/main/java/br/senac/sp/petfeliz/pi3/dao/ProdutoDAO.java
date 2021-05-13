@@ -26,7 +26,7 @@ public class ProdutoDAO {
         this.conexao = conexao;
     }
 
-    public List<Produto> listarProdutos() {
+    public static List<Produto> listarProdutos() {
         List<Produto> produtos = new ArrayList<Produto>();
 
         //Conexão para abertura e fechamento
