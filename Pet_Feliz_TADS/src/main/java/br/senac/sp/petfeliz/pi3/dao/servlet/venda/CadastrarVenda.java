@@ -69,9 +69,6 @@ public class CadastrarVenda extends HttpServlet {
             } else if(ProdutoDAO.obter(id_produto) == null) {
                 JOptionPane.showMessageDialog(null, "Produto não encontrado");
             } else {
-//                funcionario = FuncionarioDAO.obter(id_funcionario);
-//                cliente = ClienteDAO.pesquisar(id_cliente);
-//                produto = ProdutoDAO.obter(id_produto);
                 
                 Venda venda = new Venda(id_funcionario, id_cliente, id_produto, quantidade);
                 VendaDAO.inserirVenda(venda);

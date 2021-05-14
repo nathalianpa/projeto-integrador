@@ -23,67 +23,68 @@ import java.util.List;
  * @author Nathalia
  */
 public class VendaDAO {
+
     Connection conexao;
-    
-        public VendaDAO(Connection conexao) {
-        
-            this.conexao = conexao;
+
+    public VendaDAO(Connection conexao) {
+
+        this.conexao = conexao;
     }
-        public static void inserirVenda(Venda venda) throws SQLException, Exception {
-            String sqlInserir =
-            "INSERT INTO VENDA(ID_CLIENTE, ID_FUNCIONARIO, ID_PRODUTO, QUANTIDADE, DT_VENDA)"
-            + " VALUES (?,?,?,?, NOW())";
-            
-            Connection connection = null;
-            
-            PreparedStatement preparedStatement = null;
-            
-            try {
-                //Abre uma conexão com o banco de dados
-                connection = Conexao.getConexao();
-                //Cria um statement para execução de instruções SQL
-                preparedStatement = connection.prepareStatement(sqlInserir);
-                
-                preparedStatement.setLong(1, venda.getId_cliente());
-                preparedStatement.setLong(2, venda.getId_funcionario());
-                preparedStatement.setLong(3, venda.getId_produto());
-                preparedStatement.setInt(4, venda.getQuantidade());
-                
-                preparedStatement.execute();
-            }
-                finally {
-                  
-                if (preparedStatement != null && !preparedStatement.isClosed()) {
+
+    public static void inserirVenda(Venda venda) throws SQLException, Exception {
+        String sqlInserir
+                = "INSERT INTO VENDA(ID_CLIENTE, ID_FUNCIONARIO, ID_PRODUTO, QUANTIDADE, DT_VENDA)"
+                + " VALUES (?,?,?,?, NOW())";
+
+        Connection connection = null;
+
+        PreparedStatement preparedStatement = null;
+
+        try {
+            //Abre uma conexão com o banco de dados
+            connection = Conexao.getConexao();
+            //Cria um statement para execução de instruções SQL
+            preparedStatement = connection.prepareStatement(sqlInserir);
+
+            preparedStatement.setLong(1, venda.getId_cliente());
+            preparedStatement.setLong(2, venda.getId_funcionario());
+            preparedStatement.setLong(3, venda.getId_produto());
+            preparedStatement.setInt(4, venda.getQuantidade());
+
+            preparedStatement.execute();
+        } finally {
+
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
-                }
-                
-                if (connection != null && !connection.isClosed()) {
+            }
+
+            if (connection != null && !connection.isClosed()) {
                 connection.close();
-                }
             }
         }
-        
-        public static List<Venda> listarVendas() {        
+    }
+
+    public static List<Venda> listarVendas() {
         List<Venda> vendas = new ArrayList<Venda>();
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-                
-        try {           
-            connection = Conexao.getConexao();           
+
+        try {
+            connection = Conexao.getConexao();
             String sql = "SELECT * FROM VENDA";
             java.sql.Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);            
+            ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                
+
                 Venda venda = new Venda();
 
                 long codigo = rs.getLong("ID");
                 long id_cliente = rs.getLong("ID_CLIENTE");
                 long id_funcionario = rs.getLong("ID_FUNCIONARIO");
                 long id_produto = rs.getLong("ID_PRODUTO");
-                int quantidade = rs.getInt("QUANTIDADE");              
+                int quantidade = rs.getInt("QUANTIDADE");
                 Date dataVenda = rs.getDate("DT_VENDA");
 
                 venda.setId(codigo);
@@ -92,14 +93,14 @@ public class VendaDAO {
                 venda.setId_produto(id_produto);
                 venda.setQuantidade(quantidade);
                 venda.setDt_venda(dataVenda);
-                
+
                 vendas.add(venda);
             }
 
         } catch (Exception e) {
-            
+
             e.printStackTrace();
-        
+
         }
         return vendas;
     }

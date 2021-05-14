@@ -27,17 +27,16 @@ public class IncluirUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
-       
-                // Carregar aqui os departamentos
+
+        // Carregar aqui os departamentos
         List<Funcionario> funcionario = new ArrayList<Funcionario>();
 
         try {
-           funcionario = UsuarioDAO.obterFuncionario();
+            funcionario = UsuarioDAO.obterFuncionario();
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
-          
+
         request.setAttribute("funcionario", funcionario);
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Usuario/cadastrarUsuario.jsp");
         dispatcher.forward(request, response);
@@ -56,13 +55,13 @@ public class IncluirUsuario extends HttpServlet {
         Usuario u = new Usuario(login, nome, senha, ativo);
         // Carregar aqui os departamentos
         List<Funcionario> funcionario = new ArrayList<Funcionario>();
-        
+
         try {
 //            funcionario = UsuarioDAO.obterFuncionario();
             UsuarioDAO.inserir(u);
             JOptionPane.showMessageDialog(null, "Usuário cadastrado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro ao cadastrar usuário. Erro encontrado: "+ e);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuário. Erro encontrado: " + e);
         }
 
         request.setAttribute("usuario", u);
@@ -72,6 +71,5 @@ public class IncluirUsuario extends HttpServlet {
                 = request.getRequestDispatcher(
                         "WEB-INF/Usuario/cadastrarUsuario.jsp");
         dispatcher.forward(request, response);
-
     }
 }

@@ -19,31 +19,30 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-
 @WebServlet(name = "ProdutoServlet", urlPatterns = {"/IncluirProduto"})
 public class IncluirProduto extends HttpServlet {
-    
+
     @Override
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         // Carregar aqui os departamentos
         List<Categoria> categorias = new ArrayList<Categoria>();
 
         try {
-           categorias = ProdutoDAO.obterCategoria();
+            categorias = ProdutoDAO.obterCategoria();
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
-          
+
         request.setAttribute("categoria", categorias);
-        
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Produto/cadastrarProduto.jsp");
         dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
@@ -51,36 +50,34 @@ public class IncluirProduto extends HttpServlet {
 
         String nome = request.getParameter("nome");
         String marca = request.getParameter("marca");
-        String[] categorias = request.getParameterValues("cat");        
+        String[] categorias = request.getParameterValues("cat");
         String qtdStr = request.getParameter("qtd");
         String precoCompraStr = request.getParameter("prcompra");
         String precoVendaStr = request.getParameter("prvenda");
         String descricao = request.getParameter("descricao");
-      
+
         Double precoCompra = new Double(precoCompraStr);
         Double precoVenda = new Double(precoVendaStr);
-        int qtd = Integer.parseInt(qtdStr);        
+        int qtd = Integer.parseInt(qtdStr);
 
-        Produto p = new Produto(nome, marca,categorias, qtd, precoCompra, precoVenda,descricao );
-        
+        Produto p = new Produto(nome, marca, categorias, qtd, precoCompra, precoVenda, descricao);
+
         List<Categoria> categorias2 = new ArrayList<Categoria>();
-        
+
         try {
-           categorias2 = ProdutoDAO.obterCategoria();
-           ProdutoDAO.inserir(p);
-           JOptionPane.showMessageDialog(null, "Produto cadastrado");
+            categorias2 = ProdutoDAO.obterCategoria();
+            ProdutoDAO.inserir(p);
+            JOptionPane.showMessageDialog(null, "Produto cadastrado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro ao cadastrar produto. Erro encontrado: "+ e);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto. Erro encontrado: " + e);
         }
-        
+
         request.setAttribute("prod", p);
         request.setAttribute("categoria", categorias2);
-        
-        
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(
                         "WEB-INF/Produto/cadastrarProduto.jsp");
         dispatcher.forward(request, response);
-        
     }
 }

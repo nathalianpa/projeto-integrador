@@ -18,12 +18,13 @@ import java.sql.SQLException;
  * @author fernanda
  */
 public class FuncionarioDAO {
+
     Connection conexao;
 
     public FuncionarioDAO(Connection conexao) {
         this.conexao = conexao;
     }
-    
+
     public static void inserir(Funcionario funcionario)
             throws SQLException, Exception {
         //Monta a string de inserção de um funcionario no BD,
@@ -65,8 +66,9 @@ public class FuncionarioDAO {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
-        }        
+        }
     }
+
     //Obtém uma instância da classe "Funcionario" através de dados do
     //banco de dados, de acordo com o ID fornecido como parâmetro
     public static Funcionario obter(Long id)
@@ -97,9 +99,9 @@ public class FuncionarioDAO {
             if (result.next()) {
                 //Cria uma instância de Funcionario e popula com os valores do BD
 
-                Funcionario funcionario = new Funcionario();                
+                Funcionario funcionario = new Funcionario();
                 funcionario.setId(result.getLong("ID"));
-                funcionario.setNome(result.getString("NOME"));               
+                funcionario.setNome(result.getString("NOME"));
                 funcionario.setCargo(result.getString("CARGO"));
                 funcionario.setEndereco(result.getString("ENDERECO"));
                 funcionario.setBairro(result.getString("BAIRRO"));
@@ -133,18 +135,18 @@ public class FuncionarioDAO {
         //Neste caso, não há um elemento a retornar, então retornamos "null"
         return null;
     }
-      
-    public static void remove(Long codigo) throws SQLException, Exception{
+
+    public static void remove(Long codigo) throws SQLException, Exception {
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
         //comandos SQL e fechamentos
         PreparedStatement preparedStatement = null;
-  
+
         try {
             //Abre uma conexão com o banco de dados
-        
-           connection = Conexao.getConexao();
+
+            connection = Conexao.getConexao();
             String sql = "UPDATE funcionario SET ativo = ? WHERE id=?";
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
@@ -166,7 +168,8 @@ public class FuncionarioDAO {
         }
 
     }
-    public static void alterar(Funcionario funcionario) throws SQLException, Exception{
+
+    public static void alterar(Funcionario funcionario) throws SQLException, Exception {
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -176,15 +179,14 @@ public class FuncionarioDAO {
             //Abre uma conexão com o banco de dados
             connection = Conexao.getConexao();
             String sql = "UPDATE funcionario "
-                + " SET nome = ?, cargo = ?, endereco = ?, bairro = ?, cidade = ?,"
-                + " estado = ?, cep = ?, sexo = ?, telefone = ?, celular = ?"
-                + " WHERE id = ?";
+                    + " SET nome = ?, cargo = ?, endereco = ?, bairro = ?, cidade = ?,"
+                    + " estado = ?, cep = ?, sexo = ?, telefone = ?, celular = ?"
+                    + " WHERE id = ?";
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
-            //Comando do banco            
+            //Comando do banco        
 
-             
             //Setando valores
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getCargo());
@@ -195,10 +197,10 @@ public class FuncionarioDAO {
             preparedStatement.setString(7, funcionario.getCep());
             preparedStatement.setString(8, funcionario.getSexo());
             preparedStatement.setString(9, funcionario.getTelefone());
-            preparedStatement.setString(10, funcionario.getCelular());                       
-            preparedStatement.setLong(11, funcionario.getId());                      
+            preparedStatement.setString(10, funcionario.getCelular());
+            preparedStatement.setLong(11, funcionario.getId());
             preparedStatement.executeUpdate();
-            
+
         } finally {
             //Se o statement ainda estiver aberto, realiza seu fechamento
             if (preparedStatement != null && !preparedStatement.isClosed()) {

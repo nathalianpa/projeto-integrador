@@ -110,5 +110,4 @@ public class Produto {
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
-    
 }

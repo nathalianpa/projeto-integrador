@@ -372,8 +372,6 @@ public class UsuarioDAO {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
-        }
-
-      
+        }      
     }
 }

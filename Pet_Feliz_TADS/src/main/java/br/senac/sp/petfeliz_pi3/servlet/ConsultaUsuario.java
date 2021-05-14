@@ -49,7 +49,6 @@ public class ConsultaUsuario extends HttpServlet {
         request.setAttribute("usuario", usuario);
         
         //Request diretorio
-        request.getRequestDispatcher("WEB-INF/Usuario/exibirUsuario.jsp").forward(request, response); 
-
+        request.getRequestDispatcher("WEB-INF/Usuario/exibirUsuario.jsp").forward(request, response);
     }
 }

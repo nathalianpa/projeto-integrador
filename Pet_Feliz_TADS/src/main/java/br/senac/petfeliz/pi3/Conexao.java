@@ -16,8 +16,7 @@ import java.util.logging.Logger;
  * @author fernanda.nunes
  */
 public class Conexao {
-  
-    
+
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,11 +24,11 @@ public class Conexao {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
+
     public static Connection getConexao() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/petfeliz?allowPublicKeyRetrieval=true&useSSL=false";
         String user = "root";
         String pass = "";
         return DriverManager.getConnection(url, user, pass);
-}
+    }
 }
