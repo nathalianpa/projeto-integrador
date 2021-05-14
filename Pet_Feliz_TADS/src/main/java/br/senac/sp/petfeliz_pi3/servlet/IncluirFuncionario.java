@@ -28,8 +28,8 @@ public class IncluirFuncionario extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-@Override
-        protected void doPost(HttpServletRequest request,
+    @Override
+    protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -42,23 +42,22 @@ public class IncluirFuncionario extends HttpServlet {
         String cep = request.getParameter("cep");
         String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
-        String celular = request.getParameter("celular");                    
+        String celular = request.getParameter("celular");
 
-        Funcionario f = new Funcionario(nome, cargo,endereco, bairro, cidade, estado,cep, sexo,telefone,celular );                
-        
-        try {           
-           FuncionarioDAO.inserir(f);
-           JOptionPane.showMessageDialog(null, "Funcionario cadastrado");
+        Funcionario f = new Funcionario(nome, cargo, endereco, bairro, cidade, estado, cep, sexo, telefone, celular);
+
+        try {
+            FuncionarioDAO.inserir(f);
+            JOptionPane.showMessageDialog(null, "Funcionario cadastrado");
         } catch (Exception e) {
-           JOptionPane.showMessageDialog(null,"Erro ao cadastrar funcionário. Erro encontrado: "+ e);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionário. Erro encontrado: " + e);
         }
-        
-        request.setAttribute("func", f);                
-        
+
+        request.setAttribute("func", f);
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher(
                         "WEB-INF/Funcionario/cadastrarFuncionario.jsp");
         dispatcher.forward(request, response);
-        
     }
 }

@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-
 @WebServlet(name = "ExcluirCliente", urlPatterns = {"/ExcluirCliente"})
 public class ExcluirCliente extends HttpServlet {
 
@@ -42,7 +41,7 @@ public class ExcluirCliente extends HttpServlet {
             ClienteDAO.excluirCliente(id);
             JOptionPane.showMessageDialog(null, "Cliente desativado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao desativar cliente. Erro encontrado: "+e);
+            JOptionPane.showMessageDialog(null, "Erro ao desativar cliente. Erro encontrado: " + e);
         }
 
         RequestDispatcher dispatcher

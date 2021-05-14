@@ -8,13 +8,14 @@ package br.senac.sp.petfeliz.pi3.model;
 import java.sql.Date;
 
 public class Venda {
+
     private Long id;
     private Long id_funcionario;
     private Long id_cliente;
     private Long id_produto;
     private int quantidade;
     private Date dt_venda;
-    
+
     public Venda() {
     }
 
@@ -95,5 +96,5 @@ public class Venda {
      */
     public void setDt_venda(Date dt_venda) {
         this.dt_venda = dt_venda;
-    }    
+    }
 }

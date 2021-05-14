@@ -46,7 +46,6 @@ public class ConsultaFuncionario extends HttpServlet {
         }
         request.setAttribute("func", funcionario);
         
-        request.getRequestDispatcher("WEB-INF/Funcionario/exibirFuncionario.jsp").forward(request, response); 
-
+        request.getRequestDispatcher("WEB-INF/Funcionario/exibirFuncionario.jsp").forward(request, response);
     }
 }

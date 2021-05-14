@@ -6,6 +6,7 @@
 package br.senac.sp.petfeliz.pi3.model;
 
 public class Categoria {
+
     private int id;
     private String nome;
 
@@ -24,5 +25,4 @@ public class Categoria {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
 }

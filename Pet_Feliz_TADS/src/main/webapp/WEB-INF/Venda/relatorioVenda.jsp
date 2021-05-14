@@ -35,41 +35,37 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        
+
         <div class="form-horizontal">
             <fieldset>
 
                 <legend>Relatório de Vendas</legend>
-                
-        <table border= 1>
-            
-            <tr>
-                <td align=middle width=100>ID da Venda</td>
-                <td align=middle width=100>ID do Funcionario</td>
-                <td align=middle width=100>ID do cliente</td>
-                <td align=middle width=100>ID do Produto</td>
-                <td align=middle width=100>Quantidade</td>
-                <td align=middle width=100>Data da Venda</td>
-                                           
-            </tr>
-            
-            <c:forEach var="venda" items="${vendas}" varStatus="id">
-                <tr>
-                    <td align=middle width=100>${venda.getId()}</td>
-                    <td align=middle width=100>${venda.getId_funcionario()}</td>
-                    <td align=middle width=100>${venda.getId_cliente()}</td>
-                    <td align=middle width=100>${venda.getId_produto()}</td>
-                    <td align=middle width=100>${venda.getQuantidade()}</td>
-                    <td align=middle width=100>${venda.getDt_venda()}</td>                    
-                </tr>
-            </c:forEach>
-                
-        </table>       
-                
+
+                <table border= 1>
+
+                    <tr>
+                        <td align=middle width=100>ID da Venda</td>
+                        <td align=middle width=100>ID do Funcionario</td>
+                        <td align=middle width=100>ID do cliente</td>
+                        <td align=middle width=100>ID do Produto</td>
+                        <td align=middle width=100>Quantidade</td>
+                        <td align=middle width=100>Data da Venda</td>
+
+                    </tr>
+
+                    <c:forEach var="venda" items="${vendas}" varStatus="id">
+                        <tr>
+                            <td align=middle width=100>${venda.getId()}</td>
+                            <td align=middle width=100>${venda.getId_funcionario()}</td>
+                            <td align=middle width=100>${venda.getId_cliente()}</td>
+                            <td align=middle width=100>${venda.getId_produto()}</td>
+                            <td align=middle width=100>${venda.getQuantidade()}</td>
+                            <td align=middle width=100>${venda.getDt_venda()}</td>                    
+                        </tr>
+                    </c:forEach>
+
+                </table>
             </fieldset>
-            
         </div>
-        
     </body>
-    
 </html>

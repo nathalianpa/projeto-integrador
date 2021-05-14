@@ -24,15 +24,12 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-
-
     </head>
     <body>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <div class="form-horizontal">
-
 
             <div class="form-horizontal">
                 <fieldset>
@@ -53,7 +50,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="cat">Categoria</label>
                             <div class="col-md-4">
@@ -65,7 +61,6 @@
                                 </ul>
                             </div>
                         </div>
-
 
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="qtd">Quantidade</label>
@@ -97,27 +92,13 @@
                             </div>
                         </div>
 
-
-
-
-
-
-
-
-
                         <label class="col-md-4 control-label" for="button1id">
-
 
                         </label>
                         <button type="submit" class="btn btn-success">Salvar</button>   
                         <button type="reset" class="btn btn-primary">Limpar</button>
                         <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                     </form>
-
                 </fieldset>
-
-
-
-
                 </body>
                 </html>

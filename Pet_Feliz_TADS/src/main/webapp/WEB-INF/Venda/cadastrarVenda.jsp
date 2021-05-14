@@ -35,14 +35,14 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        
+
         <div class="form-horizontal">
             <fieldset>
 
                 <legend>Cadastrar Venda</legend>
-        
-        <form method="post" action="${pageContext.request.contextPath}/CadastrarVenda">
-        <div class="form-group">
+
+                <form method="post" action="${pageContext.request.contextPath}/CadastrarVenda">
+                    <div class="form-group">
                         <label class="col-md-4 control-label" for="id_funcionario">ID do Funcionario</label>
                         <div class="col-md-4">
                             <input id="endereco" name="id_funcionario" type="number" class="form-control input-md">
@@ -62,22 +62,20 @@
                             <input id="cidade" name="id_produto" type="number" class="form-control input-md">
                         </div>
                     </div>
-        
-        <div class="form-group">
+
+                    <div class="form-group">
                         <label class="col-md-4 control-label" for="quantidade">Quantidade</label>
                         <div class="col-md-4">
                             <input id="cidade" name="quantidade" type="number" class="form-control input-md">
                         </div>
                     </div>
-        <label class="col-md-4 control-label" for="button1id">
-                            
-                            
-                    </label>
-                <button type="submit" class="btn btn-success">Salvar</button>   
-                                <button type="reset" class="btn btn-primary">Limpar</button>
-                                <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
-                            
-        </form>
+                    
+                    <label class="col-md-4 control-label" for="button1id"></label>
+                    <button type="submit" class="btn btn-success">Salvar</button>   
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                    <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
+
+                </form>
             </fieldset>
     </body>
 </html>

@@ -29,7 +29,6 @@
         <nav>
             <h2 style="color: white">Alterar Usuario</h2>
 
-
             <main class="container">
                 <div class="row">
                     <div class="col-12">

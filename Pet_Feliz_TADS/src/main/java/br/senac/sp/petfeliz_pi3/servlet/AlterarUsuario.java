@@ -65,6 +65,5 @@ public class AlterarUsuario extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Usuario/alterarUsuario.jsp");
         dispatcher.forward(request, response);
-
     }
 }

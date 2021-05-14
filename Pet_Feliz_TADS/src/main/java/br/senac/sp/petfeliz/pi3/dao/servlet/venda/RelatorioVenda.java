@@ -31,17 +31,10 @@ public class RelatorioVenda extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
         
-//        List<Cliente> clientes = null;
-//        List<Funcionario> funcionarios = null;
-//        List<Produto> produtos = null;
-//        Venda venda = null;
         List<Venda> vendas = null;
         
         try {
-            vendas = VendaDAO.listarVendas();
-//                funcionario = FuncionarioDAO.obter(id_funcionario);
-//                cliente = ClienteDAO.pesquisar(id_cliente);
-//                produto = ProdutoDAO.obter(id_produto);                
+            vendas = VendaDAO.listarVendas();               
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro!");
