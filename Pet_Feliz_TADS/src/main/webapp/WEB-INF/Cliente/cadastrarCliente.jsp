@@ -51,7 +51,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="UF">Sexo</label>
                         <div class="col-md-4">
@@ -62,7 +61,6 @@
                             </select> 
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="endereco">Endereço</label>
@@ -95,7 +93,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-group">
                         <label class="col-sm-4 control-label" for="cep">Cep</label>
                         <div class="col-sm-4">
@@ -126,20 +123,11 @@
                                     return false;" maxlength="14" placeholder="(00)00000-0000" required="required" type="text" class="form-control input-md" name="celular"/>                                            </div>
                     </div>
 
-
-                    <label class="col-md-4 control-label" for="button1id">
-
-
-                    </label>
+                    <label class="col-md-4 control-label" for="button1id"></label>
                     <button type="submit" class="btn btn-success">Salvar</button>   
                     <button type="reset" class="btn btn-primary">Limpar</button>
                     <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
-
             </fieldset>
-
-
-
-
     </body>
 </html>

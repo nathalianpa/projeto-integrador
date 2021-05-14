@@ -36,61 +36,57 @@
 
     </head>
     <body>  
-             <div class="form-horizontal">
+        <div class="form-horizontal">
             <fieldset>
 
                 <legend> Dados do Cliente: </legend>
-               
-                            <form method="post" action="${pageContext.request.contextPath}/ExcluirCliente">
-                                       <div class="form-group">
-                                   
-                                    <table border= 1>
-                                        <tr>
-                                            <td align=middle width=100>Id</td>
-                                            <td align=middle width=100>Nome</td>
-                                            <td align=middle width=100>Endereco</td>
-                                            <td align=middle width=120>Bairro</td>
-                                            <td align=middle width=100>Cidade</td>
-                                            <td align=middle width=10>Estado</td>
-                                            <td align=middle width=100>Cep</td>
-                                            <td align=middle width=10>Sexo</td>
-                                            <td align=middle width=100>Telefone</td>
-                                            <td align=middle width=100>Celular</td>
-                                            <td align=middle width=150>Data de Cadastro</td>
-                                        </tr>
-                                        <tr>
-                                        
-                                            <td align=middle><c:out value="${cliente.id}"/></td>
-                                            <td align=middle><c:out value="${cliente.nome}"/></td>
-                                            <td align=middle><c:out value="${cliente.endereco}" /></td>
-                                            <td align=middle><c:out value="${cliente.bairro}" /></td>
-                                            <td align=middle><c:out value="${cliente.cidade}" /></td>
-                                            <td align=middle><c:out value="${cliente.estado}" /></td>
-                                            <td align=middle><c:out value="${cliente.cep}" /></td>
-                                            <td align=middle><c:out value="${cliente.sexo}" /></td>
-                                            <td align=middle><c:out value="${cliente.telefone}" /></td>
-                                            <td align=middle><c:out value="${cliente.celular}" /></td>
-                                            <td align=middle><fmt:formatDate value="${cliente.cadastroData}"/></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                        </div>
-                                         <label class="col-md-4 control-label" for="button1id">
 
-                                <button  class="btn btn-success" type="submit" value="${cliente.id}" name="id">Excluir</button>
-                            </form>
-                            <form method="get" action="${pageContext.request.contextPath}/ConsultarCliente">
-                                <button type="button" onclick="window.location.href = 'menu.jsp';">Voltar</button>
-                            </form>
-                            <form method="get" action="${pageContext.request.contextPath}/AlterarCliente">
-                                <button type="submit" value="${cliente.id}" name="id">Alterar</button>
-                            </form>
-                            
-                            
-                            
-                        </div>
+                <form method="post" action="${pageContext.request.contextPath}/ExcluirCliente">
+                    <div class="form-group">
+
+                        <table border= 1>
+                            <tr>
+                                <td align=middle width=100>Id</td>
+                                <td align=middle width=100>Nome</td>
+                                <td align=middle width=100>Endereco</td>
+                                <td align=middle width=120>Bairro</td>
+                                <td align=middle width=100>Cidade</td>
+                                <td align=middle width=10>Estado</td>
+                                <td align=middle width=100>Cep</td>
+                                <td align=middle width=10>Sexo</td>
+                                <td align=middle width=100>Telefone</td>
+                                <td align=middle width=100>Celular</td>
+                                <td align=middle width=150>Data de Cadastro</td>
+                            </tr>
+                            <tr>
+
+                                <td align=middle><c:out value="${cliente.id}"/></td>
+                                <td align=middle><c:out value="${cliente.nome}"/></td>
+                                <td align=middle><c:out value="${cliente.endereco}" /></td>
+                                <td align=middle><c:out value="${cliente.bairro}" /></td>
+                                <td align=middle><c:out value="${cliente.cidade}" /></td>
+                                <td align=middle><c:out value="${cliente.estado}" /></td>
+                                <td align=middle><c:out value="${cliente.cep}" /></td>
+                                <td align=middle><c:out value="${cliente.sexo}" /></td>
+                                <td align=middle><c:out value="${cliente.telefone}" /></td>
+                                <td align=middle><c:out value="${cliente.celular}" /></td>
+                                <td align=middle><fmt:formatDate value="${cliente.cadastroData}"/></td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
-            
-    </body>
+                    </div>
+                    <label class="col-md-4 control-label" for="button1id">
+
+                        <button  class="btn btn-success" type="submit" value="${cliente.id}" name="id">Excluir</button>
+                </form>
+                <form method="get" action="${pageContext.request.contextPath}/ConsultarCliente">
+                    <button type="button" onclick="window.location.href = 'menu.jsp';">Voltar</button>
+                </form>
+                <form method="get" action="${pageContext.request.contextPath}/AlterarCliente">
+                    <button type="submit" value="${cliente.id}" name="id">Alterar</button>
+                </form>
+        </div>
+    </div>
+</div>
+</body>
 </html>

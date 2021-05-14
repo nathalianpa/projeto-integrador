@@ -16,39 +16,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-
 @WebServlet(name = "ConsultarCliente", urlPatterns = {"/ConsultarCliente"})
-public class ConsultarCliente extends HttpServlet{
-   
+public class ConsultarCliente extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Cliente/pesquisarCliente.jsp");
         dispatcher.forward(request, response);
     }
-    
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //Variavel do id
         long id = Long.parseLong(request.getParameter("id"));
-        
-        Cliente cliente= null;
+
+        Cliente cliente = null;
         try {
-            if(ClienteDAO.pesquisar(id) == null){
+            if (ClienteDAO.pesquisar(id) == null) {
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado");
-            }else
-            cliente = ClienteDAO.pesquisar(id);
+            } else {
+                cliente = ClienteDAO.pesquisar(id);
+            }
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+            JOptionPane.showMessageDialog(null, "Cliente não encontrado");
         }
         request.setAttribute("cliente", cliente);
-        request.getRequestDispatcher("WEB-INF/Cliente/resultadoConsulta.jsp").forward(request, response); 
-
+        request.getRequestDispatcher("WEB-INF/Cliente/resultadoConsulta.jsp").forward(request, response);
     }
 }
-    

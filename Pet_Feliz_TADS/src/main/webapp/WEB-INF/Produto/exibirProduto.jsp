@@ -33,53 +33,53 @@
         crossorigin="anonymous"></script>
     </head>
     <body>  
-        
+
         <div class="form-horizontal">
             <fieldset>
 
                 <legend> Resultado </legend>
 
-                            <form method="post" action="${pageContext.request.contextPath}/ExcluirProduto">
-                                <div>                                    
-                                    <table border= 1>
-                                        <tr>
-                                            <td align=middle width=100>Id</td>
-                                            <td align=middle width=100>Nome</td>
-                                            <td align=middle width=100>Marca</td>
-                                            <td align=middle width=100>Descrição</td>
-                                            <td align=middle width=120>Preço Compra</td>
-                                            <td align=middle width=100>Preço Venda</td>
-                                            <td align=middle width=100>Quantidade</td>
-                                            <td align=middle width=150>Data de Cadastro</td>
-                                        </tr>
-                                        <tr>
-                                            <td align=middle><c:out value="${prod.id}"/></td>
-                                            <td align=middle><c:out value="${prod.nome}"/></td>
-                                            <td align=middle><c:out value="${prod.marca}" /></td>
-                                            <td align=middle><c:out value="${prod.descricao}" /></td>
-                                            <td align=middle><fmt:formatNumber value="${prod.precoCompra}" type="currency" /></td>
-                                            <td align=middle><fmt:formatNumber value="${prod.precoVenda}" type="currency" /></td>
-                                            <td align=middle><c:out value="${prod.quantidade}" /></td>
-                                            <td align=middle><fmt:formatDate value="${prod.dataCadastro}"/></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <br>
-                                <div>
-                                    <button  class="btn btn-primary" type="submit" value="${prod.id}" name="id">Excluir</button>
-
-                            </form>
-                            <form method="get" action="${pageContext.request.contextPath}/ConsultaProduto">
-                                <button type="button" onclick="window.location.href = 'menu.jsp';">Voltar</button>
-                            </form>
-                            <form method="get" action="${pageContext.request.contextPath}/AlterarProduto">
-                                <button type="submit" value="${prod.id}" name="id">Alterar</button>
-                            </form>
-                        </div>
+                <form method="post" action="${pageContext.request.contextPath}/ExcluirProduto">
+                    <div>                                    
+                        <table border= 1>
+                            <tr>
+                                <td align=middle width=100>Id</td>
+                                <td align=middle width=100>Nome</td>
+                                <td align=middle width=100>Marca</td>
+                                <td align=middle width=100>Descrição</td>
+                                <td align=middle width=120>Preço Compra</td>
+                                <td align=middle width=100>Preço Venda</td>
+                                <td align=middle width=100>Quantidade</td>
+                                <td align=middle width=150>Data de Cadastro</td>
+                            </tr>
+                            <tr>
+                                <td align=middle><c:out value="${prod.id}"/></td>
+                                <td align=middle><c:out value="${prod.nome}"/></td>
+                                <td align=middle><c:out value="${prod.marca}" /></td>
+                                <td align=middle><c:out value="${prod.descricao}" /></td>
+                                <td align=middle><fmt:formatNumber value="${prod.precoCompra}" type="currency" /></td>
+                                <td align=middle><fmt:formatNumber value="${prod.precoVenda}" type="currency" /></td>
+                                <td align=middle><c:out value="${prod.quantidade}" /></td>
+                                <td align=middle><fmt:formatDate value="${prod.dataCadastro}"/></td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
-                </div>
-            </main>
-        </nav>
-    </body>
+                    <br>
+                    <div>
+                        <button  class="btn btn-primary" type="submit" value="${prod.id}" name="id">Excluir</button>
+
+                </form>
+                <form method="get" action="${pageContext.request.contextPath}/ConsultaProduto">
+                    <button type="button" onclick="window.location.href = 'menu.jsp';">Voltar</button>
+                </form>
+                <form method="get" action="${pageContext.request.contextPath}/AlterarProduto">
+                    <button type="submit" value="${prod.id}" name="id">Alterar</button>
+                </form>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+</nav>
+</body>
 </html>

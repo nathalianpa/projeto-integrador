@@ -35,18 +35,17 @@ public class ExcluirUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String codigo = request.getParameter("id");
         long id = Long.parseLong(codigo);
         //Conexão para abertura e fechamento
-        try 
-        {
-           UsuarioDAO.remove(id);
-           JOptionPane.showMessageDialog(null, "Usuário desativado");
+        try {
+            UsuarioDAO.remove(id);
+            JOptionPane.showMessageDialog(null, "Usuário desativado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao desativar usuario. Erro encontrado: "+e);
+            JOptionPane.showMessageDialog(null, "Erro ao desativar usuario. Erro encontrado: " + e);
         }
-        
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Usuario/exibirUsuario.jsp");
         dispatcher.forward(request, response);

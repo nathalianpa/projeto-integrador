@@ -54,6 +54,5 @@ public class CadastrarCliente extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }

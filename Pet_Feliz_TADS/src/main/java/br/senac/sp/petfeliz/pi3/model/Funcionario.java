@@ -7,7 +7,6 @@ package br.senac.sp.petfeliz.pi3.model;
 
 import java.sql.Date;
 
-
 public class Funcionario {
 
     private Long id;
@@ -134,6 +133,5 @@ public class Funcionario {
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
-    }
-
+    }    
 }

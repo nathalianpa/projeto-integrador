@@ -30,31 +30,22 @@
         <script language="javascript"></script>
     </head>
     <body>
-       <div class="form-horizontal">
+        <div class="form-horizontal">
             <fieldset>
-
 
                 <legend>Consulta Funcionário</legend>
 
-                <form method="post" action="${pageContext.request.contextPath}/ConsultaFuncionario"> 
-
-
-
+                <form method="post" action="${pageContext.request.contextPath}/ConsultaFuncionario">
 
                     <div class="form-group">
-
-
+                        
                         <label class="col-md-4 control-label" for="id">ID</label>
-
-
-
 
                         <input required="required" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode)))
                                     return true;
                                 else
                                     return false;"  type="text" name="id" id="id"/></label>
                     </div>
-
 
                     <label class="col-md-4 control-label" for="button1id">
 
@@ -65,8 +56,6 @@
                     <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
         </div>
-
-
     </fieldset>
-    </body>
+</body>
 </html>

@@ -28,41 +28,39 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-
     </head>
-    <body>  
-      
-                 <div class="form-horizontal">
+    <body>
+        <div class="form-horizontal">
             <fieldset>
 
                 <legend> Resultado Usuário </legend>
-                            <form method="post" action="${pageContext.request.contextPath}/ExcluirUsuario">
-                                <div>                                    
-                                    <table border= 1>
-                                        <tr>
-                                            <td align=middle width=100>Id</td>
-                                            <td align=middle width=100>Nome</td>
-                                            <td align=middle width=100>Login</td>
-                                            <td align=middle width=100>Senha</td>                                            
-                                        </tr>
-                                        <tr>
-                                            <td align=middle><c:out    value="${usuario.id}"/></td>
-                                            <td align=middle><c:out  value="${usuario.nome}"/></td>
-                                            <td align=middle><c:out  value="${usuario.login}" /></td>
-                                            <td align=middle ><c:out value="${usuario.senha}" /></td>                                            
-                                        </tr>
-                                    </table>
-                                </div>
-                                <button type="submit" value="${usuario.id}" name="id">Excluir</button>
-                            </form>
-                            <form method="get" action="${pageContext.request.contextPath}/ConsultaUsuario">
-                                <button type="button" onclick="window.location.href = 'menu.jsp';">Voltar</button>
-                            </form>
-                            <form method="get" action="${pageContext.request.contextPath}/AlterarUsuario">
-                                <button type="submit" value="${usuario.id}" name="id">Alterar</button>
-                            </form>
-                        </div>
+                <form method="post" action="${pageContext.request.contextPath}/ExcluirUsuario">
+                    <div>                                    
+                        <table border= 1>
+                            <tr>
+                                <td align=middle width=100>Id</td>
+                                <td align=middle width=100>Nome</td>
+                                <td align=middle width=100>Login</td>
+                                <td align=middle width=100>Senha</td>                                            
+                            </tr>
+                            <tr>
+                                <td align=middle><c:out    value="${usuario.id}"/></td>
+                                <td align=middle><c:out  value="${usuario.nome}"/></td>
+                                <td align=middle><c:out  value="${usuario.login}" /></td>
+                                <td align=middle ><c:out value="${usuario.senha}" /></td>                                            
+                            </tr>
+                        </table>
                     </div>
-                </div>
-    </body>
+                    <button type="submit" value="${usuario.id}" name="id">Excluir</button>
+                </form>
+                <form method="get" action="${pageContext.request.contextPath}/ConsultaUsuario">
+                    <button type="button" onclick="window.location.href = 'menu.jsp';">Voltar</button>
+                </form>
+                <form method="get" action="${pageContext.request.contextPath}/AlterarUsuario">
+                    <button type="submit" value="${usuario.id}" name="id">Alterar</button>
+                </form>
+        </div>
+    </div>
+</div>
+</body>
 </html>

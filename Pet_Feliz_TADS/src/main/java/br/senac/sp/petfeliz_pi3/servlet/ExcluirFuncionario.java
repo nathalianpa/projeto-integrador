@@ -34,17 +34,16 @@ public class ExcluirFuncionario extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String codigo = request.getParameter("id");
         long id = Long.parseLong(codigo);
-        try 
-        {
-           FuncionarioDAO.remove(id);
-           JOptionPane.showMessageDialog(null, "Funcionário desativado");
+        try {
+            FuncionarioDAO.remove(id);
+            JOptionPane.showMessageDialog(null, "Funcionário desativado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao desativar funcionario. Erro encontrado: "+e);
+            JOptionPane.showMessageDialog(null, "Erro ao desativar funcionario. Erro encontrado: " + e);
         }
-        
+
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Funcionario/exibirFuncionario.jsp");
         dispatcher.forward(request, response);

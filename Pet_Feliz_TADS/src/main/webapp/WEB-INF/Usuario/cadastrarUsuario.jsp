@@ -25,12 +25,8 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-
-
     </head>
     <body>
-   
-
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -57,7 +53,6 @@
                         <div class="form-group">
                             <div class="col-md-3">
 
-
                                 <label class="col-md-4 control-label" for="senha">Senha:</label>
 
                                 <div class="col-md-4">
@@ -67,15 +62,11 @@
                         </div>
                         <label class="col-md-4 control-label" for="button1id">
 
-
                         </label>
                         <button type="submit" class="btn btn-success">Salvar</button>   
                         <button type="reset" class="btn btn-primary">Limpar</button>
                         <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
-
             </fieldset>
-
-
     </body>
 </html>

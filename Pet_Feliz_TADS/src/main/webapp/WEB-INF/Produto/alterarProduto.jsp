@@ -24,7 +24,6 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
-
     </head>
     <body>          
         <nav>
@@ -61,7 +60,9 @@
                             <label class="col-sm-2 col-form-label" for="qtd">Quantidade</label>
                             <div class="col-sm-10">
                                 <input onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode)))
-                                    return true; else return false;" style="width: 250px;" required="required" type="text" value="${prod.quantidade}" name="qtd" id="qtde" />
+                                            return true;
+                                        else
+                                            return false;" style="width: 250px;" required="required" type="text" value="${prod.quantidade}" name="qtd" id="qtde" />
                             </div>
                         </div>
                         <div class="form-group row">

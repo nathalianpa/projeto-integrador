@@ -26,16 +26,16 @@ public class AlterarProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("id"));
         List<Categoria> categorias = new ArrayList<Categoria>();
-        
+
         Produto produto = null;
         try {
             produto = ProdutoDAO.obter(id);
             categorias = ProdutoDAO.obterCategoria();
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
         request.setAttribute("id", id);
         request.setAttribute("prod", produto);
@@ -43,49 +43,45 @@ public class AlterarProduto extends HttpServlet {
 
         //Request diretorio
         request.getRequestDispatcher("WEB-INF/Produto/alterarProduto.jsp")
-                .forward(request, response); 
-        
-        
+                .forward(request, response);
+
     }
 
-     @Override
+    @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("codProd"));
         String nome = request.getParameter("nome");
         String marca = request.getParameter("marca");
-        String[] categorias = request.getParameterValues("cat");        
+        String[] categorias = request.getParameterValues("cat");
         String qtdStr = request.getParameter("qtd");
         String precoCompraStr = request.getParameter("prcompra");
         String precoVendaStr = request.getParameter("prvenda");
         String descricao = request.getParameter("descricao");
         Double precoCompra = new Double(precoCompraStr);
         Double precoVenda = new Double(precoVendaStr);
-        int qtd = Integer.parseInt(qtdStr);      
-        
+        int qtd = Integer.parseInt(qtdStr);
+
         List<Categoria> categorias2 = new ArrayList<Categoria>();
-        
-        Produto p = new Produto(nome, marca,categorias, qtd, precoCompra, precoVenda,descricao );
+
+        Produto p = new Produto(nome, marca, categorias, qtd, precoCompra, precoVenda, descricao);
         p.setId(id);
         try {
-           categorias2 = ProdutoDAO.obterCategoria();
-           ProdutoDAO.alterar(p);
-           ProdutoDAO.alterarCategoriaProduto(categorias, id);
-           JOptionPane.showMessageDialog(null, "Dado(s) do produto alterado(s)");
+            categorias2 = ProdutoDAO.obterCategoria();
+            ProdutoDAO.alterar(p);
+            ProdutoDAO.alterarCategoriaProduto(categorias, id);
+            JOptionPane.showMessageDialog(null, "Dado(s) do produto alterado(s)");
         } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, "Erro ao alterar dado(s) do produto. Erro encontrado: "+e);
+            JOptionPane.showMessageDialog(null, "Erro ao alterar dado(s) do produto. Erro encontrado: " + e);
         }
         request.setAttribute("id", id);
         request.setAttribute("prod", p);
         request.setAttribute("categoria", categorias2);
-        
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Produto/alterarProduto.jsp");
         dispatcher.forward(request, response);
-
     }
-
 }

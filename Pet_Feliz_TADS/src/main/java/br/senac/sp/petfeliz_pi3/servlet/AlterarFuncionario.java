@@ -27,27 +27,27 @@ public class AlterarFuncionario extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("id"));
-        
+
         Funcionario funcionario = null;
         try {
             funcionario = FuncionarioDAO.obter(id);
-            
+
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
         request.setAttribute("id", id);
         request.setAttribute("func", funcionario);
         request.getRequestDispatcher("WEB-INF/Funcionario/alterarFuncionario.jsp")
-                .forward(request, response);            
+                .forward(request, response);
     }
 
-     @Override
+    @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("codFunc"));
         String nome = request.getParameter("nome");
         String cargo = request.getParameter("cargo");
@@ -58,22 +58,21 @@ public class AlterarFuncionario extends HttpServlet {
         String cep = request.getParameter("cep");
         String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
-        String celular = request.getParameter("celular");                    
+        String celular = request.getParameter("celular");
 
-        Funcionario f = new Funcionario(nome, cargo,endereco, bairro, cidade, estado,cep, sexo,telefone,celular );                        
+        Funcionario f = new Funcionario(nome, cargo, endereco, bairro, cidade, estado, cep, sexo, telefone, celular);
         f.setId(id);
         try {
-           
-           FuncionarioDAO.alterar(f);
-           JOptionPane.showMessageDialog(null, "Dado(s) de funcionário alterado(s)");
+
+            FuncionarioDAO.alterar(f);
+            JOptionPane.showMessageDialog(null, "Dado(s) de funcionário alterado(s)");
         } catch (Exception e) {
-           JOptionPane.showMessageDialog(null, "Erro ao alterar dado(s) de funcionário. Erro encontrado: "+e);
+            JOptionPane.showMessageDialog(null, "Erro ao alterar dado(s) de funcionário. Erro encontrado: " + e);
         }
         request.setAttribute("id", id);
-        request.setAttribute("func", f);              
+        request.setAttribute("func", f);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Funcionario/alterarFuncionario.jsp");
         dispatcher.forward(request, response);
-
     }
 }
