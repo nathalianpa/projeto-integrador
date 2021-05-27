@@ -34,7 +34,7 @@ public class VerificarUsuario extends HttpServlet {
             if (nome != null) {
                 response.sendRedirect("menu.jsp");
             } else {
-                response.sendRedirect("index.html");
+                response.sendRedirect("index.jsp");
             }
         }
 
