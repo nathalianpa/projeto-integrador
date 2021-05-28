@@ -306,8 +306,7 @@ public class UsuarioDAO {
         PreparedStatement preparedStatement = null;
         try {
             conn = Conexao.getConexao();
-            String sql = "SELECT * FROM usuarios WHERE ativo='" + "S" + " "
-                    + "AND login= '" + login + "'";
+            String sql = "SELECT * FROM usuarios WHERE ativo='S' AND login='" + login + "';";
             java.sql.Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
