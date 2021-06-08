@@ -27,7 +27,7 @@
 
                 <div class="fadeIn first">
                     <img src="https://webstockreview.net/images/conversation-clipart-grouping-2.png" id="icon" alt="User Icon" />
-                    <h1>Gestão Pet Feliz</h1>
+                    <h1>GERENCIAMENTO PET SHOP FELIZ</h1>
                 </div>
                 <form  method="post" action="${pageContext.request.contextPath}/EfetuarLogin">
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
@@ -36,6 +36,8 @@
                 </form>
                 <div id="formFooter">
                 </div>
+                    <img src="./images/dog.png" alt="Italian Trulli"  width="300px" height="200px">
+
             </div>
         </div>
     </body>
