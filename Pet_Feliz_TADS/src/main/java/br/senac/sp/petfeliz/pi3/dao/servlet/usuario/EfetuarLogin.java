@@ -44,7 +44,7 @@ public class EfetuarLogin extends HttpServlet {
         String usuario = null;
         try {
             if(UsuarioDAO.verificar(login, senha) == null){
-                JOptionPane.showMessageDialog(null, "Usuario não existe ou login inválido.");
+                response.sendRedirect("usuario_incorreto.jsp");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 usuario = UsuarioDAO.verificar(login, senha);
