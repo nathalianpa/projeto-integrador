@@ -26,19 +26,25 @@
             <div id="formContent">
 
                 <div class="fadeIn first">
-                    <img src="https://webstockreview.net/images/conversation-clipart-grouping-2.png" id="icon" alt="User Icon" />
-                    <h1>GERENCIAMENTO PET SHOP FELIZ</h1>
+                    <h1>GERENCIAMENTO PETSHOP FELIZ</h1>
                 </div>
                 <form  method="post" action="${pageContext.request.contextPath}/EfetuarLogin">
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
                     <input type="text" id="senha" class="fadeIn third" name="senha" placeholder="password">
                     <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
-                <div id="formFooter">
-                </div>
-                    <img src="./images/dog.png" alt="Italian Trulli"  width="300px" height="200px">
+   
+                
 
             </div>
         </div>
+    
     </body>
+                                    <div class="dog">
+        <img src="./images/cachorro.png" alt="Italian Trulli"  width="300px" height="200px">
+                    </div>
+ <div id="formFooter">
+                      <p>Pet Feliz - TADS 2021</p>
+
+                </div>
 </html>
