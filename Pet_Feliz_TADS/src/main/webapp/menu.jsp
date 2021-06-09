@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html>
@@ -69,13 +70,15 @@
                             <li>
                                 <a href="./IncluirProduto"> Produtos</a>
                             </li>
-                            <li>
-                                <a href="./IncluirUsuario"> Usuários</a>
-                            </li>
+                            <c:if test="${usuario.equals('Administrador')}">                            
+                                <li>
+                                    <a href="./IncluirUsuario"> Usuários</a>
+                                </li>                            
+                            </c:if>
                         </ul>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="">Pesquisa</a>
                         <ul class="children sub-menu">
 
@@ -86,36 +89,20 @@
 
                         </ul>
                     </li>
-                    <li>
-                        <a href="">Relatórios</a>
-                        <ul class="children sub-menu">
-                            <li><a href="#">Relatorio1</a></li>
-                            <li><a href="#">Relatorio2</a></li>
-                            <li><a href="#">Relatorio3</a></li>        
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Usuários</a>
-                        <ul class="children sub-menu">
-                            <li><a href="#">Usuário: ${nome}</a></li>
-
-                            <li>
-
-                                <a href="index.jsp">Sair</a>
-
-                            </li>                         
-
-                        </ul>
-                    </li>
-
+                   
                     <li class="active">
                         <a href="#"> Vendas </a>
                         <ul class="children sub-menu">
 
-                            <li><a href="./CadastrarVenda">Efetuar Venda</a></li>                            
-                            <li><a href="./RelatorioVenda">Relatório de Vendas</a></li>
-
+                            <li><a href="./CadastrarVenda">Efetuar Venda</a></li>
+                                <c:if test="${usuario.equals('Administrador')}">
+                                <li><a href="./RelatorioVenda">Relatório de Vendas</a></li>
+                                </c:if>
                         </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.jsp">Sair</a>                        
                     </li>
                 </ul>
             </nav>

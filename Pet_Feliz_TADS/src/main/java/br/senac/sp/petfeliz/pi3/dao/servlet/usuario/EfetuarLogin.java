@@ -48,6 +48,7 @@ public class EfetuarLogin extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 usuario = UsuarioDAO.verificar(login, senha);
+                request.setAttribute("usuario", usuario);
                 request.getRequestDispatcher("menu.jsp").forward(request, response);
             }                        
         } catch (Exception e) {

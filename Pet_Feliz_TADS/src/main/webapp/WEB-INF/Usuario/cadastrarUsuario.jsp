@@ -44,28 +44,29 @@
                             <input id="textinput" name="nome" type="text" placeholder="Nome" class="form-control input-md">
                         </div>
                     </div>
+                    <br>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="login">Login:</label>
                         <div class="col-md-4">
                             <input  required="required" type="text" name="login" />                                                          
                         </div>
-                        <br>
-                        <div class="form-group">
-                            <div class="col-md-3">
+                    </div>
+                    <br>
+                    <div class="form-group">
 
-                                <label class="col-md-4 control-label" for="senha">Senha:</label>
+                        <label class="col-md-4 control-label" for="senha">Senha:</label>
 
-                                <div class="col-md-4">
-                                    <input required="required" type="text" name="senha" />
-                                </div>
-                            </div>
+                        <div class="col-md-4">
+                            <input required="required" type="password" name="senha" />
                         </div>
-                        <label class="col-md-4 control-label" for="button1id">
+                    </div>
+                    <br>
+                    <label class="col-md-4 control-label" for="button1id">
 
-                        </label>
-                        <button type="submit" class="btn btn-success">Salvar</button>   
-                        <button type="reset" class="btn btn-primary">Limpar</button>
-                        <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
+                    </label>
+                    <button type="submit" class="btn btn-success">Salvar</button>   
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                    <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
             </fieldset>
     </body>
