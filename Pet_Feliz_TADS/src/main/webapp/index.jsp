@@ -30,7 +30,7 @@
                 </div>
                 <form  method="post" action="${pageContext.request.contextPath}/EfetuarLogin">
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-                    <input type="text" id="senha" class="fadeIn third" name="senha" placeholder="password">
+                    <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="password">
                     <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
    
