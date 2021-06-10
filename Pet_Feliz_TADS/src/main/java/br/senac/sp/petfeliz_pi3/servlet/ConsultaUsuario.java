@@ -40,11 +40,11 @@ public class ConsultaUsuario extends HttpServlet {
         
         Usuario usuario = null;
         try {if(UsuarioDAO.obter(id) == null){
-                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+         response.sendRedirect("sucesso.jsp");
             }else
             usuario = UsuarioDAO.obter(id);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+         response.sendRedirect("erro.jsp");
         }
         request.setAttribute("usuario", usuario);
         

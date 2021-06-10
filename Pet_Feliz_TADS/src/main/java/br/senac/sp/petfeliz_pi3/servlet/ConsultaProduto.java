@@ -3,6 +3,7 @@ package br.senac.sp.petfeliz_pi3.servlet;
 import br.senac.sp.petfeliz.pi3.dao.ProdutoDAO;
 import br.senac.sp.petfeliz.pi3.model.Produto;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +20,16 @@ public class ConsultaProduto extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Produto/pesquisaProduto.jsp");
-        dispatcher.forward(request, response);
+        List<Produto> produtos = null;
+        
+        try {
+           produtos = ProdutoDAO.listarProdutos();
+        } catch (Exception e) {
+            response.sendRedirect("erro.jsp");
+        }
+        
+        request.setAttribute("produtos", produtos);
+        request.getRequestDispatcher("WEB-INF/Produto/pesquisaProduto.jsp").forward(request, response);
     }
 
     @Override
@@ -34,12 +43,12 @@ public class ConsultaProduto extends HttpServlet {
         Produto produto = null;
         try {
             if (ProdutoDAO.obter(id) == null) {
-                JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                response.sendRedirect("sucesso.jsp");
             } else {
                 produto = ProdutoDAO.obter(id);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Produto não encontrado");
+            response.sendRedirect("erro.jsp");
         }
         request.setAttribute("prod", produto);
 

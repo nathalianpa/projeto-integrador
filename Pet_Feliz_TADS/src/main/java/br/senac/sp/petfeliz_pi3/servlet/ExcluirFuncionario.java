@@ -8,6 +8,8 @@ package br.senac.sp.petfeliz_pi3.servlet;
 import br.senac.sp.petfeliz.pi3.dao.FuncionarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,13 +39,19 @@ public class ExcluirFuncionario extends HttpServlet {
 
         String codigo = request.getParameter("id");
         long id = Long.parseLong(codigo);
-        try {
-            FuncionarioDAO.remove(id);
-            JOptionPane.showMessageDialog(null, "Funcionário desativado");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao desativar funcionario. Erro encontrado: " + e);
-        }
+                try {
 
+            boolean ok = FuncionarioDAO.remove(id);
+
+            if (ok) {
+                response.sendRedirect("sucesso.jsp");
+            } else {
+                response.sendRedirect("erro.jsp");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ExcluirFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Funcionario/exibirFuncionario.jsp");
         dispatcher.forward(request, response);

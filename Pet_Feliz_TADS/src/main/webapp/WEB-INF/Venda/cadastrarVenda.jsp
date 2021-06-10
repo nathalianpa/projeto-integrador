@@ -42,17 +42,50 @@
                 <legend>Cadastrar Venda</legend>
 
                 <form method="post" action="${pageContext.request.contextPath}/CadastrarVenda">
+                    <!--                    <div class="form-group">
+                                            <label class="col-md-4 control-label" for="id_funcionario">Funcionario</label>
+                                            <div class="col-md-4">
+                                                                            <input id="endereco" name="id_funcionario" type="number" class="form-control input-md">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Selecione o Funcionário
+                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <c:forEach var="funcionario" items="${funcionarios}">
+                        <a class="dropdown-item" href="#">${funcionario.getNome()}</a>
+                    </c:forEach>            
+
+                </div>
+            </div>
+        </div>
+    </div>-->
+
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="id_funcionario">ID do Funcionario</label>
+                        <label class="col-md-4 control-label" for="id_funcionario">Selecione o Funcionário:</label>
                         <div class="col-md-4">
-                            <input id="endereco" name="id_funcionario" type="number" class="form-control input-md">
+                            <select class="form-control" id="id_funcionario" name="id_funcionario">
+                                <c:forEach var="funcionario" items="${funcionarios}">
+                                    <option value="${funcionario.getId()}">${funcionario.getId()} | ${funcionario.getNome()}</option>
+                                </c:forEach>                            
+                            </select>
                         </div>
                     </div>
 
+                    <!--                    <div class="form-group">
+                                            <label class="col-md-4 control-label" for="id_cliente">ID do Cliente</label>
+                                            <div class="col-md-4">
+                                                <input id="bairro" name="id_cliente" type="number" class="form-control input-md">
+                                            </div>
+                                        </div>-->
+
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="id_cliente">ID do Cliente</label>
+                        <label class="col-md-4 control-label" for="id_cliente">Selecione o Cliente</label>
                         <div class="col-md-4">
-                            <input id="bairro" name="id_cliente" type="number" class="form-control input-md">
+                            <select class="form-control" id="id_cliente" name="id_cliente">
+                                <c:forEach var="cliente" items="${clientes}">
+                                    <option value="${cliente.getId()}">${cliente.getId()} | ${cliente.getNome()}</option>
+                                </c:forEach>                            
+                            </select>
                         </div>
                     </div>
 
@@ -69,7 +102,7 @@
                             <input id="cidade" name="quantidade" type="number" class="form-control input-md">
                         </div>
                     </div>
-                    
+
                     <label class="col-md-4 control-label" for="button1id"></label>
                     <button type="submit" class="btn btn-success">Salvar</button>   
                     <button type="reset" class="btn btn-primary">Limpar</button>
@@ -77,5 +110,40 @@
 
                 </form>
             </fieldset>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="produto" items="${produtos}">
+                    <tr>
+                        <th scope="row">${produto.getId()}</th>                    
+                        <td>${produto.getNome()}</td>
+                        <td>${produto.getMarca()}</td>
+                        <td>${produto.getDescricao()}</td>
+                        <td>${produto.getPrecoCompra()}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+
+        <!--        <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <c:forEach var="produto" items="${produtos}">
+            <a class="dropdown-item" href="#">${produto.getNome()} | ${produto.getMarca()}</a>
+        </c:forEach>            
+
+    </div>
+</div>-->
     </body>
 </html>
