@@ -14,13 +14,12 @@
 }
 </style>
     <head>
-    <a href="usuario_incorreto.jsp"></a>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body class="content">
-        <h1>Usuario incorreto, por favor insira as credenciais corretas!</h1>
-        <a href="index.jsp">Voltar</a>
+        <h1>Cliente não encontrado!</h1>
+        <a href="menu.jsp">Voltar</a>
 
     </body>
 </html>

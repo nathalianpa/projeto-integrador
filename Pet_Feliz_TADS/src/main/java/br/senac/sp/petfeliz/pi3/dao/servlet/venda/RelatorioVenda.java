@@ -37,7 +37,7 @@ public class RelatorioVenda extends HttpServlet {
             vendas = VendaDAO.listarVendas();               
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro!");
+            response.sendRedirect("erro.jsp");
         }
         
         request.setAttribute("vendas", vendas);

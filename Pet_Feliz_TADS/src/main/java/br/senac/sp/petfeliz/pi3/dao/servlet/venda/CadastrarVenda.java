@@ -69,25 +69,23 @@ public class CadastrarVenda extends HttpServlet {
         
         try {
             if(FuncionarioDAO.obter(id_funcionario) == null){
-                JOptionPane.showMessageDialog(null, "Funcionario não encontrado");
+                                response.sendRedirect("func_nao_encontrado.jsp");
+
             }else if(ClienteDAO.pesquisar(id_cliente) == null) {
-                JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+                                response.sendRedirect("cliente_nao_encontrado.jsp");
             } else if(ProdutoDAO.obter(id_produto) == null) {
-                JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                                response.sendRedirect("produto_nao_encontrado.jsp");
             } else {
                 
                 Venda venda = new Venda(id_funcionario, id_cliente, id_produto, quantidade);
                 VendaDAO.inserirVenda(venda);
-                JOptionPane.showMessageDialog(null, "Venda cadastrada");
+                                response.sendRedirect("venda_cadastrada.jsp");
             }
             
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null,"Erro ao cadastrar venda. Erro encontrado: "+ e);
+                                response.sendRedirect("venda_nao_cadastrada.jsp");
         }
         
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher(
-                        "WEB-INF/Venda/cadastrarVenda.jsp");
-        dispatcher.forward(request, response);
+   
    }
 }

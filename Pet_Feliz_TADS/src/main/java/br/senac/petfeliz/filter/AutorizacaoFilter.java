@@ -2,6 +2,7 @@
 package br.senac.petfeliz.filter;
 
 import br.senac.sp.petfeliz.pi3.dao.UsuarioDAO;
+import br.senac.sp.petfeliz.pi3.model.Usuario;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -54,7 +55,7 @@ public class AutorizacaoFilter implements Filter {
     public boolean verificarAcessoIndevido(String url, Usuario usuario) {
         boolean nok = false;
          if (
-            (url.contains("/protegido/gerente") && !usuario.isGerente())
+            (url.contains("/protegido/gerente") && !usuario.isAtivo())
           ) {
              nok = true;
          }

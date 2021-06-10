@@ -9,6 +9,7 @@ import br.senac.sp.petfeliz.pi3.dao.UsuarioDAO;
 import br.senac.sp.petfeliz.pi3.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,9 +25,17 @@ public class ConsultaUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Usuario/pesquisaUsuario.jsp");
-        dispatcher.forward(request, response);
+        
+        List<Usuario> usuarios = null;
+        
+        try {
+           usuarios = UsuarioDAO.listarUsuarios();
+        } catch (Exception e) {
+            response.sendRedirect("erro.jsp");
+        }
+        
+        request.setAttribute("usuarios", usuarios);
+        request.getRequestDispatcher("WEB-INF/Usuario/pesquisaUsuario.jsp").forward(request, response);
     }
 
     @Override

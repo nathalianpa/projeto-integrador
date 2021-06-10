@@ -32,7 +32,7 @@ public class VerificarUsuario extends HttpServlet {
 
             //Janelas de abetura de acordo com a senha
             if (nome != null) {
-                response.sendRedirect("menu.jsp");
+                response.sendRedirect("protegido/menu/menu.jsp");
             } else {
                 response.sendRedirect("index.jsp");
             }

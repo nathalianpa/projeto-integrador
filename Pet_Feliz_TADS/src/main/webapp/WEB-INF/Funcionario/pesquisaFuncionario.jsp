@@ -3,6 +3,7 @@
     Created on : 02/05/2021, 09:43:38
     Author     : fernanda
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,7 @@
                 <form method="post" action="${pageContext.request.contextPath}/ConsultaFuncionario">
 
                     <div class="form-group">
-                        
+
                         <label class="col-md-4 control-label" for="id">ID</label>
 
                         <input required="required" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode)))
@@ -55,7 +56,26 @@
                     <button type="reset" class="btn btn-primary">Limpar</button>
                     <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
+            </fieldset>
         </div>
-    </fieldset>
-</body>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="funcionario" items="${funcionarios}">
+                    <tr>
+                        <th scope="row">${funcionario.getId()}</th>                    
+                        <td>${funcionario.getNome()}</td>
+                        <td>${funcionario.getTelefone()}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </body>
 </html>

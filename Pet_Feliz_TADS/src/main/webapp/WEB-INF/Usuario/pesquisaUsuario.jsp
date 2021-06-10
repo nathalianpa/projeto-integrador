@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -51,7 +52,26 @@
                     <button type="reset" class="btn btn-primary">Limpar</button>
                     <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
+            </fieldset>
         </div>
-    </fieldset>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Login</th>
+                </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="usuario" items="${usuarios}">
+                <tr>
+                    <th scope="row">${usuario.getId()}</th>                    
+                    <td>${usuario.getNome()}</td>
+                    <td>${usuario.getLogin()}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </body>
 </html>

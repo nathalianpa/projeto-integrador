@@ -8,6 +8,7 @@ package br.senac.sp.petfeliz_pi3.servlet;
 import br.senac.sp.petfeliz.pi3.dao.FuncionarioDAO;
 import br.senac.sp.petfeliz.pi3.model.Funcionario;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +25,16 @@ public class ConsultaFuncionario extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Funcionario/pesquisaFuncionario.jsp");
-        dispatcher.forward(request, response);
+        List<Funcionario> funcionarios = null;
+
+        try {
+            funcionarios = FuncionarioDAO.listarFuncionarios();
+        } catch (Exception e) {
+            response.sendRedirect("erro.jsp");
+        }
+
+        request.setAttribute("funcionarios", funcionarios);
+        request.getRequestDispatcher("WEB-INF/Funcionario/pesquisaFuncionario.jsp").forward(request, response);
     }
 
     @Override

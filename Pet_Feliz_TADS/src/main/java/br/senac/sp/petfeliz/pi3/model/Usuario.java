@@ -1,7 +1,7 @@
 package br.senac.sp.petfeliz.pi3.model;
 
 public class Usuario {
-
+private final String PERFIL_ATIVO = "PERFIL_ATIVO";
     private Long id;
     private String login;
     private String nome;
@@ -70,4 +70,8 @@ public class Usuario {
     public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
+    public boolean isAtivo(){
+        return ativo.equalsIgnoreCase(PERFIL_ATIVO);
+    }
+    
 }

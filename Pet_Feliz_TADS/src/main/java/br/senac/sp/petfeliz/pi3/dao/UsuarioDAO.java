@@ -172,14 +172,20 @@ public class UsuarioDAO {
 //
 //    }
     //Listar
-    public List<Usuario> listarUsuarios() {
+    public static List<Usuario> listarUsuarios() {
         //Lista
         List<Usuario> usuarios = new ArrayList<Usuario>();
 
+        //Conexão para abertura e fechamento
+        Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
+        PreparedStatement preparedStatement = null;
         try {
+            connection = Conexao.getConexao();
             //Comando do banco
             String sql = "SELECT * FROM usuarios WHERE ativo='" + "S" + "'";
-            java.sql.Statement stmt = conexao.createStatement();
+            java.sql.Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
