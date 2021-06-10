@@ -24,44 +24,44 @@ public class AlterarUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("id"));
-        
+
         Usuario usuario = null;
         try {
             usuario = UsuarioDAO.obter(id);
-            
+
         } catch (Exception e) {
-             e.printStackTrace();
+            e.printStackTrace();
         }
         request.setAttribute("id", id);
         request.setAttribute("usuario", usuario);
         //Request diretorio
         request.getRequestDispatcher("WEB-INF/Usuario/alterarUsuario.jsp")
-                .forward(request, response);            
+                .forward(request, response);
     }
 
-     @Override
+    @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("codUsu"));
         String nome = request.getParameter("nome");
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String ativo = "S";
 
-        Usuario u = new Usuario(nome, login,senha, ativo);                        
+        Usuario u = new Usuario(nome, login, senha, ativo);
         u.setId(id);
-        try {           
-           UsuarioDAO.alterar(u);
-                       response.sendRedirect("usuario_alterado_sucesso.jsp");
+        try {
+            UsuarioDAO.alterar(u);
+            response.sendRedirect("sucesso.jsp");
         } catch (Exception e) {
-                       response.sendRedirect("usuario_alterado_erro.jsp");
+            response.sendRedirect("erro.jsp");
         }
         request.setAttribute("id", id);
-        request.setAttribute("func", u);              
+        request.setAttribute("func", u);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Usuario/alterarUsuario.jsp");
         dispatcher.forward(request, response);

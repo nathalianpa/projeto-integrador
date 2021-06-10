@@ -67,10 +67,10 @@ public class IncluirProduto extends HttpServlet {
         try {
             categorias2 = ProdutoDAO.obterCategoria();
             ProdutoDAO.inserir(p);
-           response.sendRedirect("produto_sucesso.jsp");
+            response.sendRedirect("sucesso.jsp");
 
         } catch (Exception e) {
-           response.sendRedirect("produto_erro.jsp");
+            response.sendRedirect("erro.jsp");
         }
 
         request.setAttribute("prod", p);

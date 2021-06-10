@@ -72,16 +72,12 @@ public class AlterarProduto extends HttpServlet {
             categorias2 = ProdutoDAO.obterCategoria();
             ProdutoDAO.alterar(p);
             ProdutoDAO.alterarCategoriaProduto(categorias, id);
-           response.sendRedirect("produto_alterado.jsp");
+            response.sendRedirect("sucesso.jsp");
         } catch (Exception e) {
-           response.sendRedirect("produto_nao_alterado.jsp");
+            response.sendRedirect("erro.jsp");
         }
         request.setAttribute("id", id);
         request.setAttribute("prod", p);
         request.setAttribute("categoria", categorias2);
-
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("WEB-INF/Produto/alterarProduto.jsp");
-        dispatcher.forward(request, response);
     }
 }

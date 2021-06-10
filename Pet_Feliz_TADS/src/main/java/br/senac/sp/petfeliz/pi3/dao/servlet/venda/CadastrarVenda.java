@@ -36,14 +36,20 @@ public class CadastrarVenda extends HttpServlet {
             throws ServletException, IOException {
         
         List<Produto> produtos = null;
+        List<Funcionario> funcionarios = null;
+        List<Cliente> clientes = null;
         
         try {
            produtos = ProdutoDAO.listarProdutos();
+           funcionarios = FuncionarioDAO.listarFuncionarios();
+           clientes = ClienteDAO.listarClientes();
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Ocorreu um erro!");
+            response.sendRedirect("erro.jsp");
         }
         
         request.setAttribute("produtos", produtos);
+        request.setAttribute("funcionarios", funcionarios);
+        request.setAttribute("clientes", clientes);
         request.getRequestDispatcher("WEB-INF/Venda/cadastrarVenda.jsp").forward(request, response); 
     }
     

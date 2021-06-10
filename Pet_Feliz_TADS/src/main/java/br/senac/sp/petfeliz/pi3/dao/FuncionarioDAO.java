@@ -8,10 +8,13 @@ package br.senac.sp.petfeliz.pi3.dao;
 import br.senac.petfeliz.pi3.Conexao;
 import br.senac.sp.petfeliz.pi3.model.Funcionario;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,8 +28,10 @@ public class FuncionarioDAO {
         this.conexao = conexao;
     }
 
-    public static void inserir(Funcionario funcionario)
+    public static boolean inserir(Funcionario funcionario)
             throws SQLException, Exception {
+                boolean ok = true;
+
         //Monta a string de inserção de um funcionario no BD,
         //utilizando os dados do funcionario passados como parâmetro
         String sql = "INSERT INTO FUNCIONARIO (NOME, CARGO, ENDERECO, BAIRRO, CIDADE, ESTADO, CEP, SEXO, TELEFONE, CELULAR, CADASTRO, ATIVO) "
@@ -58,15 +63,16 @@ public class FuncionarioDAO {
             //Executa o comando no banco de dados
             preparedStatement.execute();
         } finally {
-            //Se o statement ainda estiver aberto, realiza seu fechamento
+
             if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
             }
-            //Se a conexão ainda estiver aberta, realiza seu fechamento
+
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
         }
+        return ok;
     }
 
     //Obtém uma instância da classe "Funcionario" através de dados do
@@ -136,12 +142,13 @@ public class FuncionarioDAO {
         return null;
     }
 
-    public static void remove(Long codigo) throws SQLException, Exception {
+    public static boolean remove(Long codigo) throws SQLException, Exception {
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
         //comandos SQL e fechamentos
         PreparedStatement preparedStatement = null;
+        boolean ok = true;
 
         try {
             //Abre uma conexão com o banco de dados
@@ -157,16 +164,17 @@ public class FuncionarioDAO {
             preparedStatement.executeUpdate();
 
         } finally {
-            //Se o statement ainda estiver aberto, realiza seu fechamento
+
             if (preparedStatement != null && !preparedStatement.isClosed()) {
                 preparedStatement.close();
             }
-            //Se a conexão ainda estiver aberta, realiza seu fechamento
+
             if (connection != null && !connection.isClosed()) {
                 connection.close();
             }
         }
-
+        return ok;
+    
     }
 
     public static void alterar(Funcionario funcionario) throws SQLException, Exception {
@@ -211,5 +219,59 @@ public class FuncionarioDAO {
                 connection.close();
             }
         }
+    }
+    
+    public static List<Funcionario> listarFuncionarios() {
+        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+        //Conexão para abertura e fechamento
+        Connection connection = null;
+        //Statement para obtenção através da conexão, execução de
+        //comandos SQL e fechamentos
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = Conexao.getConexao();
+            String sql = "SELECT * FROM FUNCIONARIO";
+            java.sql.Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Funcionario funcionario = new Funcionario();
+
+                Long id = rs.getLong("ID");
+                String nome = rs.getString("NOME");
+                String cargo = rs.getString("CARGO");
+                String endereco = rs.getString("ENDERECO");
+                String bairro = rs.getString("BAIRRO");
+                String cidade = rs.getString("CIDADE");
+                String estado = rs.getString("ESTADO");
+                String cep = rs.getString("CEP");
+                String sexo = rs.getString("SEXO");
+                String telefone = rs.getString("TELEFONE");
+                String celular = rs.getString("CELULAR");
+                Date cadData = rs.getDate("CADASTRO");
+
+                funcionario.setId(id);
+                funcionario.setNome(nome);
+                funcionario.setCargo(cargo);
+                funcionario.setEndereco(endereco);
+                funcionario.setBairro(bairro);
+                funcionario.setCidade(cidade);
+                funcionario.setEstado(estado);
+                funcionario.setCep(cep);
+                funcionario.setSexo(sexo);
+                funcionario.setTelefone(telefone);
+                funcionario.setCelular(celular);
+                funcionario.setDataCadastro(cadData);
+
+                funcionarios.add(funcionario);
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+        return funcionarios;
     }
 }

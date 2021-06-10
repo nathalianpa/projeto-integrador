@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,20 +42,38 @@
                         <input required="required" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode)))
                                     return true;
                                 else
-                                    return false;"  type="text" name="id" id="id"/></label>
+                                    return false;"  type="text" name="id" id="id"/>
                     </div>
 
                     <label class="col-md-4 control-label" for="button1id">
                         <br>
                     </label>
-                    
-                    <button  href="/ConsultaCliente" class="btn btn-success">Salvar</button>   
+
+                    <button href="/ConsultaCliente" class="btn btn-success">Salvar</button>   
                     <button type="reset" class="btn btn-primary">Limpar</button>
                     <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
+            </fieldset>
         </div>
-    </fieldset>
-</body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="cliente" items="${clientes}">
+                <tr>
+                    <th scope="row">${cliente.getId()}</th>                    
+                    <td>${cliente.getNome()}</td>
+                    <td>${cliente.getTelefone()}</td>                    
+                </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </body>
 </html>
 
 

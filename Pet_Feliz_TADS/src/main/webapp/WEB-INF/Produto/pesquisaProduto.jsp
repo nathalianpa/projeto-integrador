@@ -52,7 +52,31 @@
                     <button type="reset" class="btn btn-primary">Limpar</button>
                     <button type="reset"  class="btn btn-success" onclick="window.location.href = 'menu.jsp';">Voltar</button>
                 </form>
+            </fieldset>
         </div>
-    </fieldset>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Preco Compra</th>
+                    <th scope="col">Preço Venda</th>
+                </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="produto" items="${produtos}">
+                <tr>
+                    <th scope="row">${produto.getId()}</th>                    
+                    <td>${produto.getNome()}</td>
+                    <td>${produto.getMarca()}</td>
+                    <td>${produto.getDescricao()}</td>
+                    <td>${produto.getPrecoCompra()}</td>
+                    <td>${produto.getPrecoVenda()}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </body>
 </html>
