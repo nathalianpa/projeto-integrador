@@ -23,29 +23,30 @@ public class ConsultaFuncionario extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Funcionario/pesquisaFuncionario.jsp");
         dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         long id = Long.parseLong(request.getParameter("id"));
-        
+
         Funcionario funcionario = null;
         try {
-            if(FuncionarioDAO.obter(id) == null){
-                       response.sendRedirect("func_nao_encontrado.jsp");
-            }else
-            funcionario = FuncionarioDAO.obter(id);
+            if (FuncionarioDAO.obter(id) == null) {
+                response.sendRedirect("func_nao_encontrado.jsp");
+            } else {
+                funcionario = FuncionarioDAO.obter(id);
+            }
         } catch (Exception e) {
-                       response.sendRedirect("func_nao_encontrado.jsp");
+            response.sendRedirect("erro_solicitacao.jsp");
         }
         request.setAttribute("func", funcionario);
-        
+
         request.getRequestDispatcher("WEB-INF/Funcionario/exibirFuncionario.jsp").forward(request, response);
     }
 }

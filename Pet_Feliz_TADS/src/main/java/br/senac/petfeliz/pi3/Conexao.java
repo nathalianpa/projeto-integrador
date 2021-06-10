@@ -27,8 +27,8 @@ public class Conexao {
 
     public static Connection getConexao() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/petfeliz?allowPublicKeyRetrieval=true&useSSL=false";
-        String user = "root";
-        String pass = "";
+        String user = "petfeliz";
+        String pass = "password";
         return DriverManager.getConnection(url, user, pass);
     }
 }

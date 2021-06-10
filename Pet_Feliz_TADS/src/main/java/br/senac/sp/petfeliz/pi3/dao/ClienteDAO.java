@@ -25,7 +25,7 @@ public class ClienteDAO {
         this.conexao = conexao;
     }
 
-    public List<Cliente> listarClientes() {
+    public static List<Cliente> listarClientes() {
 
         List<Cliente> clientes = new ArrayList<Cliente>();
 
@@ -56,6 +56,7 @@ public class ClienteDAO {
                 Date cadData = rs.getDate("CADASTRO");
 
                 cliente.setId(id);
+                cliente.setNome(nome);
                 cliente.setEndereco(endereco);
                 cliente.setBairro(bairro);
                 cliente.setCidade(cidade);

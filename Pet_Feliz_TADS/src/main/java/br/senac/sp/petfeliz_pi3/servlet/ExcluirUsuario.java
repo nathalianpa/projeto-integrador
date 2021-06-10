@@ -41,12 +41,9 @@ public class ExcluirUsuario extends HttpServlet {
         //Conexão para abertura e fechamento
         try {
             UsuarioDAO.remove(id);
-           response.sendRedirect("excluir_usuario.jsp");
+            response.sendRedirect("sucesso.jsp");
         } catch (Exception e) {
-           response.sendRedirect("erro_excluir_usuario.jsp");
+            response.sendRedirect("erro.jsp");
         }
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("WEB-INF/Usuario/exibirUsuario.jsp");
-        dispatcher.forward(request, response);
     }
 }

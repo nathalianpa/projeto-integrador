@@ -42,14 +42,10 @@ public class ExcluirProduto extends HttpServlet {
         //Conexão para abertura e fechamento
         try {
             ProdutoDAO.remove(id);
-                       response.sendRedirect("excluir_produto_sucesso.jsp");
+            response.sendRedirect("sucesso.jsp");
 
         } catch (Exception e) {
-                       response.sendRedirect("excluir_produto_erro.jsp");
+            response.sendRedirect("erro.jsp");
         }
-
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("WEB-INF/Produto/exibirProduto.jsp");
-        dispatcher.forward(request, response);
     }
 }

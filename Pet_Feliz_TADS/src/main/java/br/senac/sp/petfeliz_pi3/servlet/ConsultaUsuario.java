@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-
 @WebServlet(name = "ConsultaUsuario", urlPatterns = {"/ConsultaUsuario"})
 public class ConsultaUsuario extends HttpServlet {
 
@@ -25,29 +24,31 @@ public class ConsultaUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/Usuario/pesquisaUsuario.jsp");
         dispatcher.forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //Variavel do id
         long id = Long.parseLong(request.getParameter("id"));
-        
+
         Usuario usuario = null;
-        try {if(UsuarioDAO.obter(id) == null){
-                       response.sendRedirect("usuario_encontrado_sucesso.jsp");
-            }else
-            usuario = UsuarioDAO.obter(id);
+        try {
+            if (UsuarioDAO.obter(id) == null) {
+                response.sendRedirect("sucesso.jsp");
+            } else {
+                usuario = UsuarioDAO.obter(id);
+            }
         } catch (Exception e) {
-                       response.sendRedirect("usuario_encontrado_erro.jsp");
+            response.sendRedirect("sucesso.jsp");
         }
         request.setAttribute("usuario", usuario);
-        
+
         //Request diretorio
         request.getRequestDispatcher("WEB-INF/Usuario/exibirUsuario.jsp").forward(request, response);
     }
