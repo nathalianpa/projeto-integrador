@@ -39,9 +39,9 @@ public class ExcluirFuncionario extends HttpServlet {
         long id = Long.parseLong(codigo);
         try {
             FuncionarioDAO.remove(id);
-            JOptionPane.showMessageDialog(null, "Funcionário desativado");
+           response.sendRedirect("excluir_func_sucesso.jsp");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao desativar funcionario. Erro encontrado: " + e);
+           response.sendRedirect("excluir_func_erro.jsp");
         }
 
         RequestDispatcher dispatcher

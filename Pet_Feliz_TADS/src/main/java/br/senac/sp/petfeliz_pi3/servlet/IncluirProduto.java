@@ -67,9 +67,10 @@ public class IncluirProduto extends HttpServlet {
         try {
             categorias2 = ProdutoDAO.obterCategoria();
             ProdutoDAO.inserir(p);
-            JOptionPane.showMessageDialog(null, "Produto cadastrado");
+           response.sendRedirect("produto_sucesso.jsp");
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto. Erro encontrado: " + e);
+           response.sendRedirect("produto_erro.jsp");
         }
 
         request.setAttribute("prod", p);

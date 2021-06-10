@@ -59,9 +59,10 @@ public class IncluirUsuario extends HttpServlet {
         try {
 //            funcionario = UsuarioDAO.obterFuncionario();
             UsuarioDAO.inserir(u);
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado");
+    response.sendRedirect("usuario_sucesso.jsp");        
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuário. Erro encontrado: " + e);
+    response.sendRedirect("usuario_erro.jsp");        
         }
 
         request.setAttribute("usuario", u);
@@ -72,4 +73,5 @@ public class IncluirUsuario extends HttpServlet {
                         "WEB-INF/Usuario/cadastrarUsuario.jsp");
         dispatcher.forward(request, response);
     }
+    
 }

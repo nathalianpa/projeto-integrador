@@ -18,7 +18,7 @@
         <title>JSP Page</title>
     </head>
     <body class="content">
-        <h1>Não foi possível cadastrar o usuário. Tente novamente.</h1>
+        <h1>Produto cadastrado com sucesso!</h1>
         <a href="menu.jsp">Voltar</a>
 
     </body>

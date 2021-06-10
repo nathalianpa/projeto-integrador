@@ -34,12 +34,12 @@ public class ConsultaProduto extends HttpServlet {
         Produto produto = null;
         try {
             if (ProdutoDAO.obter(id) == null) {
-                JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                       response.sendRedirect("produto_nao_encontrado.jsp");
             } else {
                 produto = ProdutoDAO.obter(id);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                       response.sendRedirect("produto_nao_encontrado.jsp");
         }
         request.setAttribute("prod", produto);
 

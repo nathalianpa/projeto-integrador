@@ -41,11 +41,10 @@ public class ExcluirUsuario extends HttpServlet {
         //Conexão para abertura e fechamento
         try {
             UsuarioDAO.remove(id);
-            JOptionPane.showMessageDialog(null, "Usuário desativado");
+           response.sendRedirect("excluir_usuario.jsp");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao desativar usuario. Erro encontrado: " + e);
+           response.sendRedirect("erro_excluir_usuario.jsp");
         }
-
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("WEB-INF/Usuario/exibirUsuario.jsp");
         dispatcher.forward(request, response);

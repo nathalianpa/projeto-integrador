@@ -65,14 +65,10 @@ public class AlterarFuncionario extends HttpServlet {
         try {
 
             FuncionarioDAO.alterar(f);
- response.sendRedirect("sucesso.jsp");        
+ response.sendRedirect("funcionario_sucesso.jsp");        
         } catch (Exception e) {
                 response.sendRedirect("erro.jsp");
         }
-        request.setAttribute("id", id);
-        request.setAttribute("func", f);
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("WEB-INF/Funcionario/alterarFuncionario.jsp");
-        dispatcher.forward(request, response);
+        
     }
 }

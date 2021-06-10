@@ -66,9 +66,9 @@ public class AlterarCliente extends HttpServlet {
             boolean ok = ClienteDAO.alterarCliente(cliente);
 
             if (ok) {
-                response.sendRedirect("sucesso.jsp");
+                response.sendRedirect("cliente_alterado_sucesso.jsp");
             } else {
-                response.sendRedirect("erro.jsp");
+                response.sendRedirect("cliente_alterado_erro.jsp");
             }
         } catch (Exception ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);

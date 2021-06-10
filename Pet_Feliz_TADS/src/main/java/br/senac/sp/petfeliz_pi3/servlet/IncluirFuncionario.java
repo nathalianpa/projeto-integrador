@@ -48,16 +48,11 @@ public class IncluirFuncionario extends HttpServlet {
 
         try {
             FuncionarioDAO.inserir(f);
-            JOptionPane.showMessageDialog(null, "Funcionario cadastrado");
+        response.sendRedirect("func_inserido_sucesso.jsp");        
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionário. Erro encontrado: " + e);
+        response.sendRedirect("func_inserido_erro.jsp");        
         }
 
-        request.setAttribute("func", f);
 
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher(
-                        "WEB-INF/Funcionario/cadastrarFuncionario.jsp");
-        dispatcher.forward(request, response);
     }
 }

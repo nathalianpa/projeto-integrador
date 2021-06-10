@@ -39,12 +39,12 @@ public class ConsultarCliente extends HttpServlet {
         Cliente cliente = null;
         try {
             if (ClienteDAO.pesquisar(id) == null) {
-                JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+                       response.sendRedirect("cliente_encontrado_sucesso.jsp");
             } else {
                 cliente = ClienteDAO.pesquisar(id);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+                       response.sendRedirect("cliente_encontrado_sucesso.jsp");
         }
         request.setAttribute("cliente", cliente);
         request.getRequestDispatcher("WEB-INF/Cliente/resultadoConsulta.jsp").forward(request, response);

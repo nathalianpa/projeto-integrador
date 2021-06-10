@@ -47,9 +47,9 @@ public class CadastrarCliente extends HttpServlet {
             boolean ok = ClienteDAO.inserirCliente(cliente);
 
             if (ok) {
-                response.sendRedirect("sucesso.jsp");
+                response.sendRedirect("sucesso_cadastro.jsp");
             } else {
-                response.sendRedirect("erro.jsp");
+                response.sendRedirect("usuario_incorrreto.jsp");
             }
         } catch (Exception ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
